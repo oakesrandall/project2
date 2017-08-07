@@ -37,13 +37,12 @@ function getLogout(request, response, next) {
     response.redirect('/');
 }
 
-// Restricted page
-function secret(request, response) {
-    response.render('secret.ejs', {});
-}
-
 function vote(request, response) {
     response.render('vote.ejs', {});
+}
+
+function top(request, response) {
+    response.render('top.ejs', {});
 }
 
 module.exports = {
@@ -52,6 +51,6 @@ module.exports = {
     getSignup: getSignup,
     postSignup: postSignup,
     getLogout: getLogout,
-    secret: secret,
     vote: vote,
+    top: top,
 };

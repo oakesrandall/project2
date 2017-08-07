@@ -1,12 +1,13 @@
-var express           = require('express');
-var router            = express.Router();
+const express           = require('express');
+const router            = express.Router();
 // Parses information from POST
-var bodyParser        = require('body-parser');
+const bodyParser        = require('body-parser');
 // Used to manipulate POST methods
-var methodOverride    = require('method-override');
-var passport          = require('passport');
-var usersController   = require('../controllers/users');
-var staticsController = require('../controllers/statics');
+const methodOverride    = require('method-override');
+const passport          = require('passport');
+const usersController   = require('../controllers/users');
+const staticsController = require('../controllers/statics');
+const getCat            = require('../models/cat.js');
 
 function authenticatedUser(req, res, next) {
     console.log('authenticating user');
@@ -31,10 +32,12 @@ router.route('/login')
 router.route('/logout')
     .get(usersController.getLogout);
 
-router.route('/secret')
-    .get(authenticatedUser, usersController.secret);
-
 router.route('/vote')
-    .get(authenticatedUser, usersController.vote);
+    .get(authenticatedUser, usersController.vote, getCat);
+
+router.route('/top')
+    .get(authenticatedUser, usersController.top);
+
+router.route('/');
 
 module.exports = router;
