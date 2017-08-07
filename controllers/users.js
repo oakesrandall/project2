@@ -23,7 +23,7 @@ function getLogin(request, response, next) {
 // POST /login 
 function postLogin(request, response, next) {
     var loginProperty = passport.authenticate('local-login', {
-        successRedirect: '/',
+        successRedirect: '/vote',
         failureRedirect: '/login',
         failureFlash: true
     });
@@ -38,7 +38,13 @@ function getLogout(request, response, next) {
 }
 
 // Restricted page
-function secret(request, response) {}
+function secret(request, response) {
+    response.render('secret.ejs', {});
+}
+
+function vote(request, response) {
+    response.render('vote.ejs', {});
+}
 
 module.exports = {
     getLogin: getLogin,
@@ -46,5 +52,6 @@ module.exports = {
     getSignup: getSignup,
     postSignup: postSignup,
     getLogout: getLogout,
-    secret: secret
+    secret: secret,
+    vote: vote,
 };
