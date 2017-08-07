@@ -1,4 +1,7 @@
-var mongoose = require('mongoose');
-mongoose.connect('/mongodb://localhost/tunely');
+var mongoose = require("mongoose");
+mongoose.connect( process.env.MONGODB_URI || 
+                  process.env.MONGOLAB_URI || 
+                  process.env.MONGOHQ_URL || 
+                  "mongodb://localhost/project2");
 
 module.exports.Cat = require('./cat');

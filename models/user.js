@@ -5,6 +5,7 @@ let User = mongoose.Schema({
     local: {
         email:    String,
         password: String,
+        catVotes: [String],
     }
 });
 

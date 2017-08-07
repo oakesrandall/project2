@@ -19,18 +19,18 @@ module.exports = function(passport) {
         passReqToCallback: true,
     }, function(req, email, password, callback) {
         console.log('function ran');
-        User.findOne({ 'local.email': email }, function(err, user) {
+        User.findOne({'local.email': email}, function(err, user) {
             if (err) {
                 console.log('no mongo error');
                 return callback(err);
             }
-            if (user) {
+             if (user) {
                 console.log('user found');
                 return callback(null, false, req.flash('signupMessage', 'This email address is already taken'));
-            } else {
+            } else {  
                 console.log('user not found');
                 let newUser = new User();
-                newUser.local.email    = email;
+                newUser.local.email = email;
                 newUser.local.password = newUser.hash(password);
 
                 newUser.save(function(err) {
@@ -43,22 +43,29 @@ module.exports = function(passport) {
         });
     }));
 
-    passport.use('local-login', new LocalStrategy({
+    passport.use('local-login', new LocalStrategy( {
         usernameField:    'email',
         passwordField:    'password',
         passReqToCallback: true,
-    }, function(req, email, password, callback) {
-        User.findOne({ 'local.email': email }, function(err, user) {
-            if (err) {
-                return callback(err);
-            }
-            if (!user) {
-                return callback(null, false, req.flash('loginMessage', 'No user found.'));
-            }
-            if (!user.validPassword(password)) {
-                return callback(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
-            }
-            return callback(null, user);
-        });
-    }));
+      }, function(req, email, password, callback) {
+            User.findOne({ 'local.email' :  email }, function(err, user) {
+                  if (err) {
+                    return callback(err);
+                  }
+                  if (!user) {
+                    return callback(null, false, req.flash('loginMessage', 'No user found.'));
+                  }
+                  if (!user.validPassword(password)) {
+                    return callback(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
+                  }
+                  return callback(null, user);
+            });
+        }));
 };
+
+
+
+
+
+
+
