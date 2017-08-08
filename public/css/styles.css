@@ -1,0 +1,10 @@
+#pageTitle h1 {
+    font-size: 7em;
+}
+
+img {
+    max-width: 500px;
+    max-height: 400px;
+    min-width: 400px;
+    min-height: 300px;
+}
