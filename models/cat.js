@@ -1,3 +1,4 @@
+const request  = require('request');
 const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 const https    = require('https');
@@ -12,18 +13,16 @@ let catSchema = new Schema ({
 
 let Cat = mongoose.model('Cat', catSchema);
 
-let catImage;
+// let catImage;
 
-function getCat() {
-    console.log('grabbed cat image url ', catImage);
-    https.get(myApiUrl, function(req, res) {
-       res = JSON.parse(res);
-       catImage = res.data.image_url;
-    });  
-    
-}
+// function getCat(req, res, next) {
+//     console.log('grabbed cat image url ', catImage);
+//     request(myApiUrl, function(req, res, next) {
+//        console.log('got it');
+//     });  
+// }
 
 module.exports = {
     Cat: Cat,
-    catImage: catImage,
+    // getCat: getCat,
 };

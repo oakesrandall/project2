@@ -7,7 +7,7 @@ const methodOverride    = require('method-override');
 const passport          = require('passport');
 const usersController   = require('../controllers/users');
 const staticsController = require('../controllers/statics');
-const getCat            = require('../models/cat.js');
+const models           = require('../models');
 
 function authenticatedUser(req, res, next) {
     console.log('authenticating user');
@@ -33,7 +33,7 @@ router.route('/logout')
     .get(usersController.getLogout);
 
 router.route('/vote')
-    .get(authenticatedUser, usersController.vote, getCat);
+    .get(authenticatedUser, usersController.vote);
 
 router.route('/top')
     .get(authenticatedUser, usersController.top);
