@@ -24,3 +24,4 @@ let Cat = mongoose.model('Cat', catSchema);
 
 module.exports = Cat;
     // getCat: getCat,
+

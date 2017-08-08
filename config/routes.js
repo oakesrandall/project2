@@ -38,6 +38,7 @@ router.route('/vote')
 router.route('/top')
     .get(authenticatedUser, usersController.top);
 
-router.route('/');
+
+
 
 module.exports = router;
