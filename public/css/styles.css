@@ -3,14 +3,16 @@
 }
 
 #pageTitle h1 {
-    font-size: 7em;
+    font-size: 8em;
     font-family: 'Lobster', cursive;
+    margin: 0 auto;
 
 }
 
 img {
     width: 500px;
     height: 400px;
+    margin: 10px auto;
 
 }
 
@@ -29,6 +31,14 @@ html {
 
 #pageTitle {
     color: #07123A;
+}
+
+.btn-default {
+    margin: 20px auto;
+    width: 150px;
+    height: 40px;
+    background-color: #D4B46A;
+    font-size: 1.5em;
 }
 
 
