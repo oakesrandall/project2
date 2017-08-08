@@ -22,7 +22,5 @@ let Cat = mongoose.model('Cat', catSchema);
 //     });  
 // }
 
-module.exports = {
-    Cat: Cat,
+module.exports = Cat;
     // getCat: getCat,
-};
