@@ -1,9 +1,27 @@
 <% include ./partials/header.ejs %>
-<div class='catContainer'>
-    <img src='images/cat1.gif'>
-    <div class='buttonContainer'>
-        <button class='voteButton'>totes adorbs</button>
-        <button class='voteButton'>meh</button>
+    <div id="pageContainer" class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div id="pageTitle" class="col-sm-12 text-center">
+                    <h1>Rate-a-Cat</h1>
+                    <h4>rate a cat, because...cats</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <img class="img-rounded img-responsive center-block" src="images/cat1.gif">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-sm-12">
+                    <button class="center-block btn btn-default">totes adorbs</button>
+                    <button class=" center-block btn btn-default">meh</button>
+                </div>
+            </div>
+            </div>
+        </div>
     </div>
-</div>
+
+
+
 <% include ./partials/footer.ejs %>
