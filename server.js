@@ -5,14 +5,14 @@ var passport     = require('passport');
 var flash        = require('connect-flash');
 var morgan       = require('morgan');
 var cookieParser = require('cookie-parser');
-var bodyParser   = require('body-parser');
+// var bodyParser   = require('body-parser');
 var session      = require('express-session');
 
 mongoose.connect('mongodb://localhost/project2'); 
 
 app.use(morgan('dev')); 
 app.use(cookieParser());
-app.use(bodyParser()); 
+// app.use(bodyParser()); 
 
 app.set('views', './views');
 app.engine('ejs', require('ejs').renderFile);
