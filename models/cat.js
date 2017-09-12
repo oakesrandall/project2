@@ -2,9 +2,8 @@ const request  = require('request');
 const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 const https    = require('https');
-const apiKey   = require('../env.js');
+const apiKey   = process.env.apiKey || require('../env.js');
 const myApiUrl = 'https://api.giphy.com/v1/gifs/random?api_key=' + apiKey + '&tag=cat&rating=G';
-
 
 let catSchema = new Schema ({
     catImage: String,
