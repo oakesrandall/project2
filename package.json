@@ -2,7 +2,7 @@
   "name": "api-testing",
   "version": "1.0.0",
   "description": "<!--WDI started 9:46 ended 10:36 -->",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
