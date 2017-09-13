@@ -35,4 +35,4 @@ app.use(function(req, res, next) {
 var routes = require('./config/routes');
 app.use(routes);
 
-app.listen(process.env.port || 3000);
+app.listen(process.env.Port || 3000);
