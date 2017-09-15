@@ -1,26 +1,15 @@
-const request  = require('request');
-const mongoose = require('mongoose');
-const Schema   = mongoose.Schema;
-const https    = require('https');
-const apiKey   = process.env.apiKey || require('../env.js');
-const myApiUrl = 'https://api.giphy.com/v1/gifs/random?api_key=' + apiKey + '&tag=cat&rating=G';
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-let catSchema = new Schema ({
-    catImage: String,
-    catVotes: Number,
+var CatSchema = new Schema({
+  catImage: {
+    type: String
+  },
+  catVotes: {
+    type: Number,
+    default: 1
+  }
 });
 
-let Cat = mongoose.model('Cat', catSchema);
-
-// let catImage;
-
-// function getCat(req, res, next) {
-//     console.log('grabbed cat image url ', catImage);
-//     request(myApiUrl, function(req, res, next) {
-//        console.log('got it');
-//     });  
-// }
-
-module.exports = Cat;
-    // getCat: getCat,
+module.exports = mongoose.model('Cats', CatSchema);
 

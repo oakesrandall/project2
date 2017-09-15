@@ -1,8 +1,19 @@
+const mongoose = require('mongoose'),
+  Cat = mongoose.model('Cats');
 
-function addVote(request, response, next) {
-//votes 
-}
+exports.list_all_cats = function(req, res) {
+    Cat.find({}, function(err, cat) {
+        if (err)
+            res.send(err);
+        res.json(cat);
+    });
+};
 
-// db.cats.aggregate(
-//    { $sample: { size: 1 } }
-// );
+exports.add_a_cat = function(req, res) {
+    Cat.save(function(err, cat) {
+        if (err)
+            res.send(err);
+        res.json(cat);
+        console.log("Saving Cat " + res.json);
+    });
+};

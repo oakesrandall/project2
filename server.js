@@ -7,8 +7,13 @@ var morgan       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
+var port         = process.env.PORT || 3000;
 
-// mongoose.connect('mongodb://localhost/project2'); 
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/project2'); 
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.use(morgan('dev')); 
 app.use(cookieParser());
@@ -35,4 +40,6 @@ app.use(function(req, res, next) {
 var routes = require('./config/routes');
 app.use(routes);
 
-app.listen(process.env.PORT || 3000);
+app.listen(port);
+
+console.log('todo list RESTful API server started on: ' + port);

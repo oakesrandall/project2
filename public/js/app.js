@@ -1,3 +1,7 @@
+// const express = require('express');
+// const router  = express.Router();
+// const catList = require('../controllers/cats');
+
 $(document).ready(function() {
     console.log('page loaded');
     yesVote();
@@ -9,11 +13,19 @@ let catUrl;
 
 function yesVote() {
     $('#totes').on('click', function() {
-        console.log('clicked totes!');
-        location.reload();
-//need to hit put route here 
-
-//needs to hit get route here       
+        console.log('clicked totes adorbs');
+        $.ajax({
+            method: 'post',
+            url: '/vote',
+            datatype: 'json',
+            success: function(data) {
+                console.log(data.data.image_url);
+                catUrl = data.data.image_url;
+                $('#catVote').attr('src', catUrl);
+            },
+            error: function(req, err){ console.log('my message ', err);
+            }
+        });
     });
 }
 
