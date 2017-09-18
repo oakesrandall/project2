@@ -5,7 +5,7 @@ function list_all_cats(req, res) {
     Cat.find({}, function(err, cats) {
         if (err)
             res.send(err);
-        res.send({cats: cats});
+        res.send(cats);
     });
 }
 
