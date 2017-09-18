@@ -1,1 +1,23 @@
-<h1>Top cats go here!</h1>
+<% include ./partials/header.ejs %>
+    <div id="pageContainer" class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div id="pageTitle" class="col-sm-12 text-center">
+                    <h1>Top Cats</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <ul>
+                        <% for(var i=0; i<cats.length; i++) { %>
+                        <li>
+                            <img src="<%= cats[i].catImage %>">
+                            </p>
+                        </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+<% include ./partials/footer.ejs %>

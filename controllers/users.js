@@ -52,5 +52,5 @@ module.exports = {
     postSignup: postSignup,
     getLogout: getLogout,
     vote: vote,
-    top: top,
+    top: top
 };

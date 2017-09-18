@@ -1,19 +1,24 @@
 const mongoose = require('mongoose'),
   Cat = mongoose.model('Cats');
 
-exports.list_all_cats = function(req, res) {
-    Cat.find({}, function(err, cat) {
+function list_all_cats(req, res) {
+    Cat.find({}, function(err, cats) {
         if (err)
             res.send(err);
-        res.json(cat);
+        res.send({cats: cats});
     });
-};
+}
 
-exports.add_a_cat = function(req, res) {
+function add_a_cat (req, res) {
     Cat.save(function(err, cat) {
         if (err)
             res.send(err);
         res.json(cat);
         console.log("Saving Cat " + res.json);
     });
+}
+
+module.exports = {
+    list_all_cats: list_all_cats,
+    add_a_cat: add_a_cat,
 };
